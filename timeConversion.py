@@ -5,18 +5,22 @@ class timeConversion:
         self.timeFormat = timeFormat
         
     def convert(self):
-        s_splitted = timeFormat.split(":")
-        if(int(s_splitted[0])>12 or int(s_splitted[1])>59 or int(s_splitted[2][:-2])>59):
+        timeSplitted = timeFormat.split(":")
+        hour = int(timeSplitted[0])
+        minute = int(timeSplitted[1])
+        second = int(timeSplitted[2][:-2])
+
+        if( (hour>12 or hour<1) or (minute>59 or minute<0) or (second>59 or second<0) ):
             print("Entered time format is wrong")
         else:
                 
             if(timeFormat[-2:]=="PM"):
-                if(s_splitted[0]!="12"):
-                    s_splitted[0]=str(int(s_splitted[0])+12)
+                if(timeSplitted[0]!="12"):
+                    timeSplitted[0]=str(int(timeSplitted[0])+12)
             else:
-                if(s_splitted[0]=="12"):
-                    s_splitted[0]="00"
-            time = ":".join(s_splitted)
+                if(timeSplitted[0]=="12"):
+                    timeSplitted[0]="00"
+            time = ":".join(timeSplitted)
             time=str(time[:-2])
             print(time)
 
