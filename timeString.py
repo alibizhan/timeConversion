@@ -1,1 +1,1 @@
-timeFormat = "12:19:59PM"
+timeFormat = "12:00:05PM"
